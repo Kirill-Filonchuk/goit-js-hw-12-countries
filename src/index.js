@@ -5,26 +5,23 @@ import itemsOfCountries from './templates/items-countries.hbs'
 import API from './js/fetchCountries';
 import getRefs from './js/get-refs';
 
-// const debounce = require("../node_modules/lodash.debounce")
-// debounce
-// Import debounce
+// import { alert, notice, info, success, error } from '@pnotify/core';
 import debounce from 'lodash.debounce';
 const refs = getRefs();
 
-refs.searchForm.addEventListener('submit', debounce(onSearch, 500));
+refs.searchInput.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const searchValue = form.elements.query.value;
-    console.log(searchValue);
+    const inputData = e.target;
+    const searchValue = inputData.value;
+    console.dir(searchValue);
 
     API.fetchCountries(searchValue)
         .then(renderCountries)
         .catch(onFetchError)
     .finally(()=>{form.reset()})
 }
-
 
 
 function renderCountries(country) {
@@ -35,10 +32,13 @@ function renderCountries(country) {
 }
 
 function onFetchError(err) {
-    alert("Введите правильные данные - цифры")
+    // alert("Введите правильные данные - цифры")
     console.dir(err);
 }
 
+// const myError = onFetchError(err)({
+//   text: "I'm an error message."
+// });
 
 
 
