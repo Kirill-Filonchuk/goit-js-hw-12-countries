@@ -75,3 +75,23 @@ img {
     font-size: x-large;
   }
 }
+
+.countries-hide {
+  display: none;
+}
+
+.countries-show {
+  display: block;
+  background: rgb(240, 222, 163);
+
+  width: 200px;
+}
+
+.input-control {
+  width: 200px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}

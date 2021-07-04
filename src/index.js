@@ -7,7 +7,7 @@ defaultModules.set(PNotifyMobile, {});
  alert({
       text: 'Введи название страны',
          type: 'alert',
-         delay: 2500,
+         delay: 1500,
       });
 
 
@@ -30,48 +30,81 @@ function onSearch(e) {
     API.fetchCountries(searchValue)
         .then(renderCountries)
         .catch(onFetchError)
-    .finally(()=>{e.target.value=''})
+    .finally()
+}
+function clearInput() {
+  console.dir(refs.searchInput);
+  refs.searchInput.value = ''
+  
 }
 
+clearInput()
+
+  refs.selectList.addEventListener('click', selectCurrentCountry )
+  
+function selectCurrentCountry(e) {
+  const countName = e.target.textContent;
+  
+if (e.target.nodeName === 'LI') {
+ 
+ API.fetchCountries(countName)
+        .then(renderCountries)
+        .catch(onFetchError)
+    .finally()
+
+    }  
+         
+}
 
 function renderCountries(country) {
 
     if (country.length === 1) {
         
-notice({
-    text: 'Запрос успешно обработан',
-    type: 'notice',
-  delay: 1500,
-       animation: 'slide',
-});
+      notice({
+          text: 'Запрос успешно обработан',
+          type: 'notice',
+        delay: 1000,
+            animation: 'slide',
+      });
 
-         const markup = countriesCardTpl(...country);
-    refs.cardCont.innerHTML = markup;
+      refs.inputList.classList.replace("countries-show", "countries-hide")
+      
+     const markup = countriesCardTpl(...country);
+      refs.cardCont.innerHTML = markup;
+      refs.searchInput.setAttribute('autocomplete', 'off');
+   clearInput()
     }
+
+
     if (country.length >= 2 && country.length <= 10) {
-           
+       
        success({
       text: 'Список стран по Вышему запросу',
            type: 'success',
-       delay: 1500,
-});
+       delay: 1000,
+        });
 
+      refs.inputList.classList.replace("countries-hide", "countries-show")
+   
         const markup = itemsOfCountries(country);
          console.log(country);
-    refs.inputList.innerHTML = markup;
+      refs.inputList.innerHTML = markup;
+
     }
+
     if (country.length >10) {
        refs.cardCont.innerHTML = '' 
   error({
     text: "Введите более специфичный запрос. ",
       type: 'error',
-     delay: 1500,
-});
+     delay: 1000,
+    });
 
+      refs.inputList.classList.replace("countries-show", "countries-hide")
     }
       console.log(list);
     console.log(country.length);
-     
+  
 }
 
 function onFetchError(err) {
@@ -79,13 +112,12 @@ function onFetchError(err) {
      alert({
       text: 'Введи название страны',
          type: 'alert',
-         delay: 1500,
+         delay: 1000,
       });
 
     console.dir(err);
 }
 
-console.log(refs.inputList);
 
 
 

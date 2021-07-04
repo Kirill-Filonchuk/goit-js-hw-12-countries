@@ -1,17 +1,14 @@
 <article class="example">
   <h1>Countries</h1>
 
-  <!-- src="images/demo.jpg"  Путь к изображениям из HTML-фрагмента такой, как из файла index.html -->
-    <form class="form-inline search-form js-search-form"  autocomplete="off">
+    <form class="search-form js-search-form"  >
     <div class="form-group">
-      <input type="text" class="form-control" name="query" list="countries" autocomplete="off"/>
-      <!-- реализация дополнительного задания ментора -->
-      <datalist id="countries"></datalist>
+      <input type="text" class="input-control" name="query" list="countries" />
+     
+      <div id="countries" class="countries-hide"></div>
     </div>
   </form>
 
   <div class="js-card-container"></div>
   
-
-  <!-- <script src="index.js"></script> временно закоментировал, чтобы не дублировались запросы!-->
 </article>
