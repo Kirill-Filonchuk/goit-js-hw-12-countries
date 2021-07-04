@@ -18,7 +18,15 @@ img {
 }
 
 .card {
-  width: 288px;
+  max-width: 388px;
+  border: 4px inset aqua;
+}
+
+.card .countries {
+  text-align: center;
+  font-size: xx-large;
+
+  border: 4px inset rgb(187, 255, 0);
 }
 
 .card-text {
@@ -43,4 +51,27 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.capital {
+  text-align: left;
+  font-size: xx-large;
+}
+
+.capital-name {
+  text-align: left;
+  font-size: xx-large;
+}
+
+.flag {
+  border: 4px outset rgb(223, 14, 101);
+}
+
+.item {
+  text-align: left;
+  font-size: xx-large;
+  lh {
+    font-weight: bold;
+    font-size: x-large;
+  }
 }

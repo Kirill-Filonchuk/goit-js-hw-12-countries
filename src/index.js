@@ -19,7 +19,7 @@ import getRefs from './js/get-refs';
 import debounce from 'lodash.debounce';
 const refs = getRefs();
 
-refs.searchInput.addEventListener('input', debounce(onSearch, 1000));
+refs.searchInput.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
     e.preventDefault();
@@ -35,11 +35,6 @@ function onSearch(e) {
 
 
 function renderCountries(country) {
- 
-const list =[]
-    for (let i = 0; i < country.length; i++){
-list.push(country[i].name)
-    }
 
     if (country.length === 1) {
         

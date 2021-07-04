@@ -2,9 +2,10 @@
   <h1>Countries</h1>
 
   <!-- src="images/demo.jpg"  Путь к изображениям из HTML-фрагмента такой, как из файла index.html -->
-    <form class="form-inline search-form js-search-form">
+    <form class="form-inline search-form js-search-form"  autocomplete="off">
     <div class="form-group">
-      <input type="text" class="form-control" name="query" list="countries"/>
+      <input type="text" class="form-control" name="query" list="countries" autocomplete="off"/>
+      <!-- реализация дополнительного задания ментора -->
       <datalist id="countries"></datalist>
     </div>
   </form>

@@ -2,17 +2,17 @@
     <h2 class="countries">{{name}}</h2>
     <div>
         <div>
-    <h3>Capital: <span>{{capital}}</span></h3>
-    <h3>Population: <span>{{population}}</span></h3>
+    <h3 class="capital">Capital: <span class="capital-name">{{capital}}</span></h3>
+    <h3 class="population">Population: <span class="population-value">{{population}}</span></h3>
 
-            <ul>
+            <ul class="item">
                 <lh>Languages:</lh>
                 {{#each languages}}
                 <li>{{this.name}}</li>
                 {{/each}}
             </ul>
         </div>
-        <div>
+        <div class="flag">
             <img src="{{flag}}"" alt="{{name}}">
         </div>
     </div>
