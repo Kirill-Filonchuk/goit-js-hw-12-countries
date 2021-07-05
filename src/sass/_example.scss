@@ -95,3 +95,9 @@ img {
   display: flex;
   flex-direction: column;
 }
+
+.item-country:hover {
+  color: #ffe;
+  background-color: #5488af;
+  cursor: pointer;
+}
